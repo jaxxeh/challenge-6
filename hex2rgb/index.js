@@ -71,9 +71,11 @@ exports.convert = function(inStr, stripAlpha = false) {
   const hexa2 = new RegExp('^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$');
   // single valid color match expression (0-255) for use in rgb/rgba
   const cval = '25[0-5]|2[0-4][0-9]|[0-1]?[0-9]?[0-9]';
+  // valid alpha match expression for floats in the range (0-1)
+  const aval = '1(\\.0+?)?|0|0?(\\.\\d+?)';
   // rgb/rgba formats
   const rgb = new RegExp(`^rgb\\((${cval}) *?, *?(${cval}) *?, *?(${cval}) *?\\)$`);
-  const rgba = new RegExp(`^rgba\\((${cval}) *?, *?(${cval}) *?, *?(${cval}) *?, *?([0-1]?(\\.\\d+?)?) *?\\)$`);
+  const rgba = new RegExp(`^rgba\\((${cval}) *?, *?(${cval}) *?, *?(${cval}) *?, *?(${aval}) *?\\)$`);
 
   if (hex1.test(str)) {
     return { error: null, value: toRGB(str.match(hex1).slice(1, 4).map(c => `${c}${c}`)) };
