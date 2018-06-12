@@ -1,0 +1,8 @@
+{
+  "name": "hex2rgb",
+  "version": "1.0.0",
+  "description": "Hex -> RGB and RGB -> Hex CSS string format conversion",
+  "main": "index.js",
+  "author": "Thomas Hennes <jaxxeh@gmail.com>",
+  "license": "MIT"
+}
